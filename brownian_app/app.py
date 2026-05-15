@@ -74,6 +74,7 @@ st.markdown("""
         margin-bottom: 16px;
     }
     .info-box b { color: #c7c7e0; }
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -181,6 +182,25 @@ st.divider()
 
 # ── Tabs ───────────────────────────────────────────────────────────────────────
 
+st.iframe("""
+<script>
+if (!window.parent._cameraprimed) {
+    window.parent._cameraprimed = true;
+    function prime() {
+        var btn = window.parent.document.querySelector('button.modebar-btn[data-title="Fullscreen"]');
+        if (!btn) { setTimeout(prime, 200); return; }
+        btn.click();
+        setTimeout(function() {
+            window.parent.document.dispatchEvent(
+                new KeyboardEvent('keydown', {key: 'Escape', keyCode: 27, bubbles: true})
+            );
+        }, 100);
+    }
+    setTimeout(prime, 500);
+}
+</script>
+""", height=1)
+
 tab_3d, tab_physics, tab_about = st.tabs([
     "  🧊  3D Trajectories  ",
     "  📈  Physics Analysis  ",
@@ -208,6 +228,7 @@ with tab_3d:
             show_start_end=show_endpoints,
         ),
         width='stretch',
+        key="fig_3d",
         config={
             "modeBarButtonsToRemove": [
                 "zoom3d", "pan3d", "orbitRotation", "tableRotation",
