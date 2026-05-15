@@ -72,6 +72,7 @@ def fig_trajectories_3d(
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=0, r=0, t=10, b=0),
         height=600,
+        dragmode="orbit",
         scene=dict(
             xaxis=dict(title="X", gridcolor="#333", showbackground=False),
             yaxis=dict(title="Y", gridcolor="#333", showbackground=False),

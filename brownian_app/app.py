@@ -208,6 +208,13 @@ with tab_3d:
             show_start_end=show_endpoints,
         ),
         width='stretch',
+        config={
+            "modeBarButtonsToRemove": [
+                "zoom3d", "pan3d", "orbitRotation", "tableRotation",
+                "handleDrag3d", "resetCameraLastSave3d", "hoverClosest3d",
+            ],
+            "displaylogo": False,
+        },
     )
 
     with st.expander("📋  Per-walker summary"):
