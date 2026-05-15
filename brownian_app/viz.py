@@ -77,7 +77,7 @@ def fig_trajectories_3d(
             xaxis=dict(title="X", gridcolor="#333", showbackground=False),
             yaxis=dict(title="Y", gridcolor="#333", showbackground=False),
             zaxis=dict(title="Z", gridcolor="#333", showbackground=False),
-            bgcolor="rgba(0,0,0,0)",
+            bgcolor="#0f0f13",
             camera=dict(eye=dict(x=1.5, y=1.5, z=1.0)),
         ),
         legend=dict(orientation="v", x=1.0, y=0.5, font=dict(size=11)),
