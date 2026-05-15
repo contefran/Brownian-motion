@@ -106,7 +106,7 @@ with st.sidebar:
     ])
 
     st.divider()
-    run = st.button("▶  Run simulation", use_container_width=True, type="primary")
+    run = st.button("▶  Run simulation", width='stretch', type="primary")
 
 
 # ── Context blurbs ─────────────────────────────────────────────────────────────
@@ -207,7 +207,7 @@ with tab_3d:
             trail_frac=trail_pct / 100,
             show_start_end=show_endpoints,
         ),
-        use_container_width=True,
+        width='stretch',
     )
 
     with st.expander("📋  Per-walker summary"):
@@ -221,7 +221,7 @@ with tab_3d:
             }
             for w in range(sim["n_walkers"])
         ]
-        st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+        st.dataframe(pd.DataFrame(rows), width='stretch', hide_index=True)
 
 
 # ── Tab 2: Physics ────────────────────────────────────────────────────────────
@@ -238,7 +238,7 @@ with tab_physics:
             unsafe_allow_html=True,
         )
         st.plotly_chart(fig_msd(sim["t"], sim["msd"], fit),
-                        use_container_width=True)
+                        width='stretch')
 
     with col_r:
         st.markdown("#### Displacement over time (per walker)")
@@ -249,7 +249,7 @@ with tab_physics:
             unsafe_allow_html=True,
         )
         st.plotly_chart(fig_displacement_time(sim["t"], sim["displacement"]),
-                        use_container_width=True)
+                        width='stretch')
 
     st.markdown("#### Final displacement distribution")
     st.markdown(
@@ -261,7 +261,7 @@ with tab_physics:
     )
     st.plotly_chart(
         fig_displacement_hist(final_st["values"], final_st["theoretical_rms"]),
-        use_container_width=True,
+        width='stretch',
     )
 
     col_a, col_b, col_c = st.columns(3)
